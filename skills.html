@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="az" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#030305">
+<title>NOVA333X STUDIO // Technical Skills Architecture</title>
+
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+<!-- FontAwesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+}
+
+html {
+scroll-padding-top: 88px;
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+}
+
+body {
+font-family: 'Space Grotesk', sans-serif;
+background-color: #030305;
+color: #f1f1f5;
+cursor: auto !important;
+min-width: 320px;
+overflow-x: hidden;
+}
+
+a,
+button,
+summary,
+[role="button"] {
+cursor: pointer;
+-webkit-tap-highlight-color: transparent;
+}
+
+input,
+textarea,
+select {
+cursor: text;
+}
+
+button {
+touch-action: manipulation;
+}
+
+img,
+video,
+svg {
+max-width: 100%;
+}
+
+.mono-text {
+font-family: 'JetBrains Mono', monospace;
+}
+
+/* Ambient Studio Video Background */
+.video-bg-container {
+position: fixed;
+inset: 0;
+z-index: -3;
+overflow: hidden;
+pointer-events: none;
+}
+
+.video-bg-container video {
+width: 100%;
+height: 100%;
+object-fit: cover;
+filter: brightness(0.25) contrast(1.2);
+}
+
+.video-overlay {
+position: fixed;
+inset: 0;
+z-index: -2;
+pointer-events: none;
+background:
+radial-gradient(circle at center, rgba(3, 3, 5, 0.4) 0%, rgba(3, 3, 5, 0.95) 100%),
+linear-gradient(to bottom, rgba(3, 3, 5, 0.8), rgba(3, 3, 5, 0.95));
+}
+
+.cyber-grid {
+position: fixed;
+inset: 0;
+z-index: -1;
+background-image:
+linear-gradient(to right, rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+linear-gradient(to bottom, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+background-size: 40px 40px;
+pointer-events: none;
+}
+
+/* Fast blur intro */
+@keyframes fastUnblur {
+0% { filter: blur(20px); opacity: 0; transform: scale(0.95); }
+30% { filter: blur(0); opacity: 1; transform: scale(1); }
+100% { filter: blur(0); opacity: 1; transform: scale(1); }
+}
+
+.futuristic-intro {
+animation: fastUnblur 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Dropdown menus */
+.dropdown-menu {
+opacity: 0;
+pointer-events: none;
+transform: translateY(12px);
+transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .dropdown-menu,
+.group:focus-within .dropdown-menu {
+opacity: 1;
+pointer-events: auto;
+transform: translateY(0);
+}
+
+/* Case-study media cards */
+.media-showcase-card {
+background: rgba(12, 12, 20, 0.7);
+backdrop-filter: blur(16px);
+-webkit-backdrop-filter: blur(16px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+border-radius: 24px;
+overflow: hidden;
+transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+border-color 0.5s ease,
+box-shadow 0.5s ease;
+position: relative;
+min-width: 0;
+}
+
+.media-showcase-card:hover {
+transform: translateY(-6px) scale(1.01);
+border-color: rgba(99, 102, 241, 0.5);
+box-shadow: 0 20px 40px -15px rgba(99, 102, 241, 0.25);
+}
+
+.media-showcase-card img,
+.media-showcase-card video {
+display: block;
+width: 100%;
+height: 240px;
+object-fit: cover;
+transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.media-showcase-card:hover img,
+.media-showcase-card:hover video {
+transform: scale(1.05);
+}
+
+.play-indicator {
+position: absolute;
+top: 12px;
+right: 12px;
+background: rgba(0, 0, 0, 0.6);
+backdrop-filter: blur(8px);
+border: 1px solid rgba(255, 255, 255, 0.2);
+color: #fff;
+font-size: 10px;
+padding: 4px 10px;
+border-radius: 20px;
+transition: all 0.3s ease;
+}
+
+.media-showcase-card:hover .play-indicator {
+background: #6366f1;
+border-color: #818cf8;
+}
+
+.modal-active {
+opacity: 1 !important;
+pointer-events: auto !important;
+overflow-y: auto;
+}
+
+body.modal-open {
+overflow: hidden;
+}
+
+/* Scroll reveal */
+.animate-on-scroll {
+opacity: 0;
+transform: translateY(35px) scale(0.98);
+transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.animate-on-scroll.animated {
+opacity: 1;
+transform: translateY(0) scale(1);
+}
+
+/* Hero title hover */
+.glitch-text span {
+display: inline-block;
+transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s ease;
+}
+
+.glitch-text span:hover {
+transform: scale(1.15) translateY(-8px);
+color: #818cf8;
+text-shadow: 0 0 25px rgba(129, 140, 248, 0.8);
+}
+
+/* Filter active state */
+.skill-filter-btn.active {
+border-color: #6366f1;
+color: #fff;
+background: rgba(79, 70, 229, 0.2);
+}
+
+/* Mobile menu */
+.site-header {
+min-height: 68px;
+padding-top: calc(1rem + env(safe-area-inset-top, 0px));
+}
+
+.desktop-header-actions {
+display: flex;
+}
+
+.mobile-header-controls,
+.mobile-menu {
+display: none;
+}
+
+.mobile-menu[hidden] {
+display: none !important;
+}
+
+.mobile-menu-button {
+width: 44px;
+height: 44px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 5px;
+border: 1px solid rgba(255, 255, 255, 0.2);
+border-radius: 12px;
+background: rgba(255, 255, 255, 0.05);
+color: #fff;
+}
+
+.mobile-menu-button span {
+display: block;
+width: 19px;
+height: 2px;
+border-radius: 2px;
+background: currentColor;
+transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.mobile-menu-button[aria-expanded="true"] span:first-child {
+transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-menu-button[aria-expanded="true"] span:nth-child(2) {
+opacity: 0;
+}
+
+.mobile-menu-button[aria-expanded="true"] span:last-child {
+transform: translateY(-7px) rotate(-45deg);
+}
+
+.mobile-menu-links > a,
+.mobile-menu-links summary {
+min-height: 48px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 12px 8px;
+color: #e4e4e7;
+border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+font: 700 12px/1.4 'JetBrains Mono', monospace;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+list-style: none;
+}
+
+.mobile-menu-links summary::-webkit-details-marker {
+display: none;
+}
+
+.mobile-menu-links summary i {
+color: #818cf8;
+transition: transform 0.2s ease;
+}
+
+.mobile-menu-links details[open] summary i {
+transform: rotate(180deg);
+}
+
+.mobile-submenu {
+display: grid;
+gap: 2px;
+padding: 6px 0 10px 12px;
+border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-submenu a {
+min-height: 44px;
+display: flex;
+align-items: center;
+padding: 10px;
+color: #a1a1aa;
+font-size: 13px;
+}
+
+.mobile-menu-actions {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 10px;
+margin-top: 16px;
+}
+
+.mobile-menu-actions button {
+min-height: 46px;
+padding: 10px;
+border: 1px solid rgba(255, 255, 255, 0.2);
+border-radius: 999px;
+color: #fff;
+background: rgba(255, 255, 255, 0.05);
+font: 700 10px 'JetBrains Mono', monospace;
+text-transform: uppercase;
+}
+
+.mobile-menu-actions button:last-child {
+color: #050505;
+background: #fff;
+}
+
+/* Modal viewport / iOS keyboard support */
+#contactModal,
+#authModal,
+#infoModal {
+padding-top: max(12px, env(safe-area-inset-top, 0px));
+padding-bottom: max(12px, env(safe-area-inset-bottom, 0px));
+overflow-y: auto;
+overscroll-behavior: contain;
+-webkit-overflow-scrolling: touch;
+}
+
+#contactModal > div,
+#authModal > div,
+#infoModal > div {
+max-height: calc(100vh - 24px);
+max-height: calc(100dvh - 24px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+overflow-y: auto;
+-webkit-overflow-scrolling: touch;
+}
+
+#contactForm input,
+#contactForm textarea,
+#authModal input {
+width: 100%;
+min-width: 0;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+width: 4px;
+}
+
+::-webkit-scrollbar-track {
+background: #030305;
+}
+
+::-webkit-scrollbar-thumb {
+background: #1e1b4b;
+border-radius: 2px;
+}
+
+/* Tablet */
+@media (max-width: 1023px) {
+html {
+scroll-padding-top: 76px;
+}
+
+.site-header {
+min-height: 66px;
+padding-left: 16px;
+padding-right: 16px;
+gap: 12px;
+}
+
+.desktop-header-actions {
+display: none !important;
+}
+
+.mobile-header-controls {
+display: flex;
+align-items: center;
+}
+
+.mobile-menu:not([hidden]) {
+display: block;
+position: absolute;
+top: 100%;
+left: 0;
+right: 0;
+max-height: calc(100dvh - 72px - env(safe-area-inset-top, 0px));
+overflow-y: auto;
+overscroll-behavior: contain;
+padding: 12px 16px max(18px, env(safe-area-inset-bottom, 0px));
+background: rgba(5, 5, 10, 0.98);
+border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6);
+-webkit-overflow-scrolling: touch;
+}
+
+.media-showcase-card {
+border-radius: 20px;
+}
+
+.media-showcase-card img,
+.media-showcase-card video {
+height: 220px;
+}
+
+#skillsGrid,
+#skillFilterTabs {
+min-width: 0;
+}
+}
+
+/* Phones */
+@media (max-width: 767px) {
+html {
+scroll-padding-top: 68px;
+}
+
+.site-header {
+min-height: 62px;
+padding-left: 12px;
+padding-right: 12px;
+}
+
+.site-header > a span {
+font-size: 17px;
+}
+
+.mobile-menu:not([hidden]) {
+max-height: calc(100dvh - 62px - env(safe-area-inset-top, 0px));
+padding-left: 12px;
+padding-right: 12px;
+}
+
+.mobile-menu-actions {
+grid-template-columns: 1fr;
+}
+
+#skillsGrid {
+padding: 30px 14px 54px;
+}
+
+#skillsContainer {
+grid-template-columns: minmax(0, 1fr);
+gap: 16px;
+}
+
+.media-showcase-card {
+padding: 16px !important;
+border-radius: 18px;
+}
+
+.media-showcase-card img,
+.media-showcase-card video {
+height: clamp(160px, 52vw, 220px);
+}
+
+.media-showcase-card h3 {
+font-size: 1.15rem;
+line-height: 1.25;
+}
+
+.media-showcase-card p {
+font-size: 12px;
+line-height: 1.65;
+}
+
+.play-indicator {
+top: 8px;
+right: 8px;
+font-size: 9px;
+}
+
+.skill-filter-btn {
+min-height: 42px;
+padding: 10px 14px !important;
+font-size: 10px;
+}
+
+#skillFilterTabs {
+gap: 8px;
+padding-left: 0;
+padding-right: 0;
+}
+
+section.pt-40 {
+padding: 108px 14px 46px;
+}
+
+section.pt-40 h1 {
+font-size: clamp(2rem, 9vw, 3.25rem);
+line-height: 1.08;
+overflow-wrap: anywhere;
+}
+
+section.pt-40 p {
+font-size: 10px;
+line-height: 1.7;
+letter-spacing: 0.12em;
+}
+
+footer {
+padding: 48px 16px !important;
+margin-top: 42px !important;
+}
+
+footer > div:first-child {
+gap: 28px;
+margin-bottom: 34px;
+}
+
+footer .grid > div {
+min-width: 0;
+}
+
+footer .flex.gap-4 {
+align-items: flex-start;
+text-align: left;
+}
+
+#contactModal,
+#authModal,
+#infoModal {
+align-items: flex-start;
+padding: 12px;
+}
+
+#contactModal > div,
+#authModal > div,
+#infoModal > div {
+width: 100%;
+max-width: 100%;
+max-height: calc(100dvh - 24px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+padding: 22px 16px;
+margin: auto 0;
+border-radius: 20px;
+}
+
+#contactModal h3,
+#authModal h3,
+#infoModal h3 {
+font-size: 1.35rem;
+}
+
+#contactForm input,
+#contactForm textarea,
+#authModal input {
+min-height: 46px;
+font-size: 16px;
+}
+
+#contactForm textarea {
+min-height: 110px;
+}
+
+#toastNotification {
+left: 12px;
+right: 12px;
+bottom: max(12px, env(safe-area-inset-bottom, 0px));
+max-width: none;
+padding: 12px;
+gap: 10px;
+}
+}
+
+@media (max-width: 380px) {
+.site-header > a span {
+font-size: 15px;
+}
+
+.mobile-menu-actions {
+grid-template-columns: 1fr;
+}
+
+.skill-filter-btn {
+font-size: 9px;
+padding-left: 10px !important;
+padding-right: 10px !important;
+}
+
+.media-showcase-card > div:nth-child(2) {
+gap: 8px;
+}
+
+.media-showcase-card > div:nth-child(2) span {
+font-size: 8px;
+letter-spacing: 0.04em;
+}
+}
+
+/* Devices without hover: don't rely on hover for essential content */
+@media (hover: none), (pointer: coarse) {
+.media-showcase-card:hover {
+transform: none;
+box-shadow: none;
+border-color: rgba(255, 255, 255, 0.1);
+}
+
+.media-showcase-card:hover img,
+.media-showcase-card:hover video {
+transform: none;
+}
+
+.glitch-text span:hover {
+transform: none;
+text-shadow: none;
+}
+}
+
+@media (prefers-reduced-motion: reduce) {
+*,
+*::before,
+*::after {
+scroll-behavior: auto !important;
+animation-duration: 0.01ms !important;
+animation-iteration-count: 1 !important;
+transition-duration: 0.01ms !important;
+}
+
+.animate-on-scroll {
+opacity: 1;
+transform: none;
+}
+}
+</style>
+</head>
+
+<body class="relative overflow-x-hidden selection:bg-indigo-500 selection:text-white">
+
+<!-- Ambient Video Background & Cyber Mesh -->
+<div class="video-bg-container" aria-hidden="true">
+<video autoplay loop muted playsinline preload="metadata" poster="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1920&q=80">
+<source src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-screens-with-data-41553-large.mp4" type="video/mp4">
+</video>
+</div>
+<div class="video-overlay" aria-hidden="true"></div>
+<div class="cyber-grid" aria-hidden="true"></div>
+
+<!-- Toast Notification -->
+<div id="toastNotification" role="status" aria-live="polite" class="fixed bottom-6 right-6 z-[100005] bg-[#0c0c0c] border-2 border-indigo-500 px-6 py-4 shadow-[6px_6px_0px_#6366f1] flex items-center gap-3 mono-text text-xs text-white">
+<i class="fa-solid fa-circle-check text-indigo-400 text-base" aria-hidden="true"></i>
+<span id="toastMessage">Action completed successfully.</span>
+</div>
+
+<!-- ================= FUTURISTIC PRELOADER ================= -->
+<div id="preloader" class="fixed inset-0 bg-[#030305] z-[100000] flex flex-col justify-between p-8 md:p-16 transition-all duration-1000">
+<div class="flex justify-between items-center mono-text text-[11px] text-zinc-500 uppercase tracking-widest border-b border-white/10 pb-4 futuristic-intro">
+<span>NOVA333X // STUDIO ARCHITECTURE</span>
+<span class="text-indigo-400 animate-pulse">ESTABLISHING QUANTUM LINK...</span>
+</div>
+
+<div class="my-auto text-center relative py-12 futuristic-intro">
+<div class="inline-block px-4 py-1.5 rounded-full bg-indigo-950/60 border border-indigo-500/30 text-indigo-300 text-[10px] font-mono uppercase tracking-[0.3em] mb-6 shadow-[0_0_20px_rgba(99,102,241,0.3)]">
+// SYSTEM INITIALIZATION
+</div>
+
+<h1 class="font-['Syne'] text-4xl sm:text-5xl md:text-6xl font-extrabold text-white uppercase tracking-tighter mb-4 drop-shadow-[0_0_35px_var(--accent-glow)]">
+NOVA<span class="text-[var(--accent-color)]">333</span>X
+</h1>
+
+
+<div class="font-['JetBrains_Mono'] text-2xl sm:text-3xl font-light text-indigo-300 mb-8 tracking-[0.3em]" id="preloaderCounter">00%</div>
+
+<div class="max-w-sm mx-auto h-[3px] bg-white/10 relative overflow-hidden rounded-full shadow-inner">
+<div id="preloaderBar" class="absolute top-0 left-0 h-full bg-gradient-to-r from-indigo-500 via-indigo-300 to-white transition-all duration-75 shadow-[0_0_20px_#6366f1]" style="width: 0%;"></div>
+</div>
+</div>
+
+<div class="flex justify-between items-end mono-text text-[10px] text-zinc-600 uppercase border-t border-white/10 pt-4 futuristic-intro">
+<div>
+<p>STATUS: MESH SECURED</p>
+<p class="text-zinc-400">EDITION 2026</p>
+</div>
+<div class="flex gap-2 items-center">
+<span class="w-2 h-2 rounded-full bg-indigo-500 animate-ping"></span>
+<span class="text-indigo-400 font-bold">READY</span>
+</div>
+</div>
+</div>
+
+<!-- ================= NAVBAR ================= -->
+<header class="site-header fixed top-0 left-0 w-full z-50 bg-[#030305]/85 backdrop-blur-2xl border-b border-white/10 px-6 py-4 flex justify-between items-center shadow-2xl">
+<a href="index.html" class="flex items-center gap-3 group shrink-0" aria-label="NOVA333X home">
+<span class="font-['Syne'] font-extrabold text-xl tracking-tighter text-white uppercase group-hover:text-indigo-400 transition">NOVA333X<span class="text-indigo-500">.</span></span>
+</a>
+
+<div class="desktop-header-actions items-center gap-6 text-xs uppercase tracking-widest font-medium">
+<nav class="flex gap-6 text-zinc-400 items-center" aria-label="Main navigation">
+<a href="index.html" class="hover:text-white transition">Home</a>
+
+<div class="relative group py-2">
+<button type="button" class="hover:text-white transition flex items-center gap-1">Services <i class="fa-solid fa-chevron-down text-[9px]"></i></button>
+<div class="dropdown-menu absolute top-full left-0 bg-[#0b0b12]/95 backdrop-blur-2xl border border-white/15 rounded-2xl p-4 w-56 shadow-2xl space-y-2">
+<a href="frontend.html" class="block text-zinc-400 hover:text-white transition text-xs py-1">Frontend Development</a>
+<a href="responsive.html" class="block text-zinc-400 hover:text-white transition text-xs py-1">Responsive Design</a>
+<a href="landing-pages.html" class="block text-zinc-400 hover:text-white transition text-xs py-1">Landing Pages</a>
+<a href="e-commerce-websites.html" class="block text-zinc-400 hover:text-white transition text-xs py-1">E Commerce Websites</a>
+</div>
+</div>
+
+<div class="relative group py-2">
+<button type="button" class="hover:text-white transition flex items-center gap-1">Projects <i class="fa-solid fa-chevron-down text-[9px]"></i></button>
+<div class="dropdown-menu absolute top-full left-0 bg-[#0b0b12]/95 backdrop-blur-2xl border border-white/15 rounded-2xl p-4 w-48 shadow-2xl space-y-2">
+<a href="all-projects.html" class="block text-zinc-400 hover:text-white transition text-xs py-1">All Projects</a>
+<a href="case-studies.html" class="block text-zinc-400 hover:text-white transition text-xs py-1">Case Studies</a>
+</div>
+</div>
+
+<a href="skills.html" class="text-white font-bold transition border-b-2 border-indigo-500 pb-0.5">Skills</a>
+</nav>
+
+<div class="flex items-center gap-3">
+<button type="button" id="openAuthModal" class="border border-white/15 hover:border-indigo-400 rounded-full px-4 py-2.5 hover:bg-indigo-500 hover:text-white transition uppercase mono-text text-[11px] font-medium shadow-lg">Sign In / Register</button>
+<button type="button" id="openContactModal" class="bg-white text-black rounded-full px-5 py-2.5 hover:bg-indigo-400 hover:text-black transition uppercase mono-text text-[11px] font-bold shadow-lg">Contact</button>
+</div>
+</div>
+
+<!-- Mobile / Tablet menu button -->
+<div class="mobile-header-controls">
+<button type="button" id="mobileMenuButton" class="mobile-menu-button" aria-label="Open navigation menu" aria-controls="mobileMenu" aria-expanded="false">
+<span></span><span></span><span></span>
+</button>
+</div>
+
+<!-- Mobile / Tablet menu -->
+<div id="mobileMenu" class="mobile-menu" hidden>
+<nav class="mobile-menu-links" aria-label="Mobile navigation">
+<a href="index.html">Home</a>
+
+<details>
+<summary>Services <i class="fa-solid fa-chevron-down"></i></summary>
+<div class="mobile-submenu">
+<a href="front-dev.html">Frontend Development</a>
+<a href="responsive-design.html">Responsive Design</a>
+<a href="landing-pages.html">Landing Pages</a>
+<a href="e-commerce-websites.html">E Commerce Websites</a>
+</div>
+</details>
+
+<details>
+<summary>Projects <i class="fa-solid fa-chevron-down"></i></summary>
+<div class="mobile-submenu">
+<a href="all-projects.html">All Projects</a>
+<a href="case-studies.html">Case Studies</a>
+</div>
+</details>
+
+<a href="skills.html">Skills</a>
+</nav>
+
+<div class="mobile-menu-actions">
+<button type="button" id="mobileOpenAuthModal">Sign In / Register</button>
+<button type="button" id="mobileOpenContactModal">Contact</button>
+</div>
+</div>
+</header>
+
+<!-- ================= HERO SECTION ================= -->
+<section class="pt-40 pb-16 px-6 max-w-7xl mx-auto text-center animate-on-scroll">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-950/60 border border-indigo-500/30 text-indigo-300 text-[10px] font-mono uppercase tracking-[0.25em] mb-6 backdrop-blur-md shadow-inner">
+<i class="fa-solid fa-layer-group text-[9px] text-indigo-400"></i> EXPERTISE &amp; STACK MATRIX
+</div>
+
+<h1 class="font-['Syne'] text-4xl md:text-6xl font-extrabold uppercase tracking-tight text-white glitch-text mb-4">
+<span>T</span><span>e</span><span>c</span><span>h</span><span>n</span><span>i</span><span>c</span><span>a</span><span>l</span> <span>S</span><span>k</span><span>i</span><span>l</span><span>l</span><span>s</span>
+</h1>
+
+<p class="mono-text text-xs tracking-[0.25em] text-zinc-400 max-w-2xl mx-auto uppercase leading-relaxed">
+Hover over cards to trigger video playback &amp; explore interactive domains.
+</p>
+
+<!-- Category Filter Tabs -->
+<div class="flex flex-wrap justify-center gap-3 mt-10 mono-text text-xs uppercase" id="skillFilterTabs">
+<button type="button" class="skill-filter-btn active px-6 py-3 rounded-full border border-indigo-500 text-white bg-indigo-600/20 backdrop-blur-md transition shadow-lg" data-filter="all">All Skills</button>
+<button type="button" class="skill-filter-btn px-6 py-3 rounded-full border border-white/15 text-zinc-400 bg-black/40 backdrop-blur-md hover:border-indigo-400 hover:text-white transition" data-filter="dev">Development &amp; Tech</button>
+<button type="button" class="skill-filter-btn px-6 py-3 rounded-full border border-white/15 text-zinc-400 bg-black/40 backdrop-blur-md hover:border-indigo-400 hover:text-white transition" data-filter="content">Content &amp; AI</button>
+<button type="button" class="skill-filter-btn px-6 py-3 rounded-full border border-white/15 text-zinc-400 bg-black/40 backdrop-blur-md hover:border-indigo-400 hover:text-white transition" data-filter="media">Media &amp; Management</button>
+</div>
+</section>
+
+<!-- ================= SKILLS GRID ================= -->
+<section id="skillsGrid" class="py-12 px-6 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="skillsContainer">
+
+<!-- Skill 1: Front-End Development -->
+<div class="media-showcase-card p-6 group cursor-pointer animate-on-scroll" data-category="dev" data-title="Front-End Development" data-text="Expert crafting of modern, high-performance web UIs with zero-dependency Vanilla JavaScript, CSS Grid/Flexbox, Tailwind CSS, and mobile-first architecture.">
+<div class="rounded-xl overflow-hidden mb-5 border border-white/10 relative">
+<video class="hover-video" muted playsinline loop preload="metadata" poster="Front-End Development.mp4">
+<source src="Front-End Development.mp4" type="video/mp4">
+</video>
+<span class="play-indicator mono-text"><i class="fa-solid fa-play text-[8px] mr-1"></i> HOVER TO PLAY</span>
+</div>
+<div class="flex justify-between items-start mb-3 gap-3">
+<span class="mono-text text-[10px] text-indigo-300 tracking-widest border border-indigo-500/30 px-3 py-1 rounded-full bg-indigo-950/40">// CORE ARCHITECTURE</span>
+<i class="fa-solid fa-code text-xl text-indigo-400 group-hover:scale-110 transition"></i>
+</div>
+<h3 class="font-['Syne'] text-xl font-bold text-white mb-2">Front-End Development</h3>
+<p class="text-xs text-zinc-400 leading-relaxed font-light">HTML, CSS, JavaScript, responsive mobile-first layouts, and clean interface components.</p>
+</div>
+
+<!-- Skill 2: Technical Writing -->
+<div class="media-showcase-card p-6 group cursor-pointer animate-on-scroll" data-category="content" data-title="Technical Writing" data-text="Authoring structured documentation, system specifications, GitBook notes, and technical articles with clarity and precision.">
+<div class="rounded-xl overflow-hidden mb-5 border border-white/10 relative">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVgWpO2ZaAqpk-dg60buyQR8aQC6zWtnqHmGEXWI9ca6gNnWz2BOpWCwk&amp;s=10" alt="Technical Writing" loading="lazy">
+<span class="play-indicator mono-text"><i class="fa-solid fa-file-code text-[8px] mr-1"></i> DOCS</span>
+</div>
+<div class="flex justify-between items-start mb-3 gap-3">
+<span class="mono-text text-[10px] text-indigo-300 tracking-widest border border-indigo-500/30 px-3 py-1 rounded-full bg-indigo-950/40">// DOCUMENTATION</span>
+<i class="fa-solid fa-file-code text-xl text-indigo-400 group-hover:scale-110 transition"></i>
+</div>
+<h3 class="font-['Syne'] text-xl font-bold text-white mb-2">Technical Writing</h3>
+<p class="text-xs text-zinc-400 leading-relaxed font-light">Structured technical documentation and notes via Notion, GitBook, and Markdown.</p>
+</div>
+
+<!-- Skill 3: AI Content Writing -->
+<div class="media-showcase-card p-6 group cursor-pointer animate-on-scroll" data-category="content" data-title="AI Content Writing" data-text="Accelerating content workflows using Claude, Cursor AI, and custom prompt workflows for technical and creative publishing.">
+<div class="rounded-xl overflow-hidden mb-5 border border-white/10 relative">
+<img src="https://i.pinimg.com/1200x/42/97/8d/42978d2d8fca786df2318764ffc17871.jpg" alt="AI Writing" loading="lazy">
+<span class="play-indicator mono-text"><i class="fa-solid fa-robot text-[8px] mr-1"></i> AI TECH</span>
+</div>
+<div class="flex justify-between items-start mb-3 gap-3">
+<span class="mono-text text-[10px] text-indigo-300 tracking-widest border border-indigo-500/30 px-3 py-1 rounded-full bg-indigo-950/40">// AI INTEGRATION</span>
+<i class="fa-solid fa-wand-magic-sparkles text-xl text-indigo-400 group-hover:scale-110 transition"></i>
+</div>
+<h3 class="font-['Syne'] text-xl font-bold text-white mb-2">AI Content Writing</h3>
+<p class="text-xs text-zinc-400 leading-relaxed font-light">Rapid, high-quality content creation using Cursor, Claude, and modern AI tools.</p>
+</div>
+
+<!-- Skill 4: Content Writing & Creation -->
+<div class="media-showcase-card p-6 group cursor-pointer animate-on-scroll" data-category="content" data-title="Content Writing &amp; Creation" data-text="Engaging storytelling and structured articles tailored for tech blogs, marketing channels, and social platforms.">
+<div class="rounded-xl overflow-hidden mb-5 border border-white/10 relative">
+<img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Content Creation" loading="lazy">
+<span class="play-indicator mono-text"><i class="fa-solid fa-pen text-[8px] mr-1"></i> CREATIVE</span>
+</div>
+<div class="flex justify-between items-start mb-3 gap-3">
+<span class="mono-text text-[10px] text-indigo-300 tracking-widest border border-indigo-500/30 px-3 py-1 rounded-full bg-indigo-950/40">// COPYWRITING</span>
+<i class="fa-solid fa-pen-nib text-xl text-indigo-400 group-hover:scale-110 transition"></i>
+</div>
+<h3 class="font-['Syne'] text-xl font-bold text-white mb-2">Content Writing &amp; Creation</h3>
+<p class="text-xs text-zinc-400 leading-relaxed font-light">Reader-centric engaging articles, blogs, and content strategies for digital media.</p>
+</div>
+
+<!-- Skill 5: YouTube SEO & Thumbnail -->
+<div class="media-showcase-card p-6 group cursor-pointer animate-on-scroll" data-category="media" data-title="YouTube SEO &amp; Thumbnail Design" data-text="Video optimization, high-CTR thumbnail artwork creation, and audience engagement strategies.">
+<div class="rounded-xl overflow-hidden mb-5 border border-white/10 relative">
+<video class="hover-video" muted playsinline loop preload="metadata" poster="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&amp;fit=crop&amp;w=800&amp;q=80">
+<source src="https://assets.mixkit.co/videos/preview/mixkit-hands-holding-a-smartphone-with-a-green-screen-41539-large.mp4" type="video/mp4">
+</video>
+<span class="play-indicator mono-text"><i class="fa-solid fa-play text-[8px] mr-1"></i> HOVER TO PLAY</span>
+</div>
+<div class="flex justify-between items-start mb-3 gap-3">
+<span class="mono-text text-[10px] text-indigo-300 tracking-widest border border-indigo-500/30 px-3 py-1 rounded-full bg-indigo-950/40">// MEDIA OPTIMIZATION</span>
+<i class="fa-brands fa-youtube text-xl text-red-400 group-hover:scale-110 transition"></i>
+</div>
+<h3 class="font-['Syne'] text-xl font-bold text-white mb-2">YouTube SEO &amp; Thumbnail</h3>
+<p class="text-xs text-zinc-400 leading-relaxed font-light">Search Engine Optimization (SEO), high-CTR visual design, and thumbnails.</p>
+</div>
+
+<!-- Skill 6: Social Media Management -->
+<div class="media-showcase-card p-6 group cursor-pointer animate-on-scroll" data-category="media" data-title="Social Media Management" data-text="Over 6 years of experience managing brand presence, scheduling, content curation, and community growth.">
+<div class="rounded-xl overflow-hidden mb-5 border border-white/10 relative">
+<img src="https://images.unsplash.com/photo-1611926653458-09294b3142bf?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Social Media" loading="lazy">
+<span class="play-indicator mono-text"><i class="fa-solid fa-share-nodes text-[8px] mr-1"></i> 6+ YEARS</span>
+</div>
+<div class="flex justify-between items-start mb-3 gap-3">
+<span class="mono-text text-[10px] text-indigo-300 tracking-widest border border-indigo-500/30 px-3 py-1 rounded-full bg-indigo-950/40">// PROFESSIONAL STYLE</span>
+<i class="fa-solid fa-share-nodes text-xl text-indigo-400 group-hover:scale-110 transition"></i>
+</div>
+<h3 class="font-['Syne'] text-xl font-bold text-white mb-2">Social Media Management</h3>
+<p class="text-xs text-zinc-400 leading-relaxed font-light">6+ years of experience, effective client management with a clear communicator and detail-oriented approach.</p>
+</div>
+</div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="border-t border-white/10 bg-[#020204]/90 backdrop-blur-2xl py-20 px-6 mt-20 animate-on-scroll">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+
+<div>
+<span class="mono-text text-[10px] text-zinc-500 uppercase tracking-widest block mb-2">// PROFILE</span>
+<h3 class="font-['Syne'] text-lg font-bold text-white mb-2">Frontend Developer &amp; Content Creator</h3>
+<p class="text-xs text-zinc-400 leading-relaxed font-light mb-4">Building modern, AI-powered web interfaces and structured technical content.</p>
+<div class="pt-2 border-t border-white/10">
+<h4 class="font-['Syne'] text-base font-bold text-white">NOVA333X<span class="text-indigo-400">.</span></h4>
+<p class="text-[11px] text-zinc-500 font-light mt-1">Frontend development studio and technical content creation hub.</p>
+</div>
+</div>
+
+<div>
+<span class="mono-text text-[10px] text-zinc-500 uppercase tracking-widest block mb-2">// SPECIALIZATIONS &amp; SERVICES</span>
+<ul class="space-y-2.5 text-xs text-zinc-300 font-light">
+<li><button type="button" class="info-link hover:text-indigo-400 transition text-left" data-title="Frontend Architecture" data-text="High-performance, scalable single-page and multi-page web applications built with modern Vanilla JavaScript and clean CSS architecture.">Frontend Architecture</button></li>
+<li><button type="button" class="info-link hover:text-indigo-400 transition text-left" data-title="Responsive UI/UX Design" data-text="Mobile-first layout creation and fluid typography tailored for seamless cross-device user experiences.">Responsive UI/UX Design</button></li>
+<li><button type="button" class="info-link hover:text-indigo-400 transition text-left" data-title="HTML / CSS / JS (Vanilla)" data-text="Pure, dependency-free core web technologies optimized for maximum speed, performance, and clean code maintenance.">HTML / CSS / JS (Vanilla)</button></li>
+<li><button type="button" class="info-link hover:text-indigo-400 transition text-left" data-title="AI Integration &amp; Automation" data-text="Integrating cutting-edge AI tools, Claude and custom API endpoints into web workflows for rapid development.">AI Integration &amp; Automation</button></li>
+</ul>
+</div>
+
+<div>
+<span class="mono-text text-[10px] text-zinc-500 uppercase tracking-widest block mb-2">// CONNECT &amp; PROFILES</span>
+<ul class="space-y-3 text-xs text-zinc-300 font-mono">
+<li>
+<a href="https://github.com/yusufiexweb" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 hover:text-indigo-300 transition border border-white/10 p-2.5 rounded-2xl bg-white/5 hover:border-indigo-500/40">
+<i class="fa-brands fa-github text-base text-white"></i>
+<span>GitHub / yusufiexweb</span>
+</a>
+</li>
+<li>
+<a href="https://www.upwork.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 hover:text-indigo-300 transition border border-white/10 p-2.5 rounded-2xl bg-white/5 hover:border-indigo-500/40">
+<i class="fa-brands fa-upwork text-base text-[#6fda44]"></i>
+<span>Upwork Freelance</span>
+</a>
+</li>
+<li>
+<a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 hover:text-indigo-300 transition border border-white/10 p-2.5 rounded-2xl bg-white/5 hover:border-indigo-500/40">
+<i class="fa-brands fa-linkedin-in text-base text-[#0a66c2]"></i>
+<span>LinkedIn Network</span>
+</a>
+</li>
+</ul>
+</div>
+
+<div>
+<span class="mono-text text-[10px] text-zinc-500 uppercase tracking-widest block mb-2">// DOCUMENTATION &amp; PLATFORMS</span>
+<ul class="space-y-2.5 text-xs text-zinc-300 font-light">
+<li><button type="button" class="info-link hover:text-indigo-400 transition text-left" data-title="GitBook Technical Notes" data-text="Comprehensive system guides and technical documentation structured for developers.">GitBook Notes</button></li>
+<li><button type="button" class="info-link hover:text-indigo-400 transition text-left" data-title="Notion Workspace" data-text="Organized project trackers and component libraries maintained in Notion.">Notion Workspace</button></li>
+<li><button type="button" class="info-link hover:text-indigo-400 transition text-left" data-title="Platform Ecosystem" data-text="Seamless connectivity across developer hubs, repositories, and professional networks.">GitHub / Upwork / LinkedIn</button></li>
+</ul>
+</div>
+</div>
+
+<div class="max-w-7xl mx-auto border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs mono-text text-zinc-500 gap-4">
+<span>&copy; 2026 NOVA333X. ALL RIGHTS RESERVED.</span>
+<span>DEVELOPED BY YUSUFIEXWEB</span>
+</div>
+</footer>
+
+<!-- ================= CONTACT MODAL ================= -->
+<div id="contactModal" class="fixed inset-0 bg-black/90 backdrop-blur-xl z-[100001] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+<div class="bg-[#0b0b14] border border-white/20 rounded-3xl w-full max-w-lg p-8 relative shadow-2xl my-auto max-h-[90vh] overflow-y-auto">
+<button type="button" id="closeContactModal" aria-label="Close contact modal" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-white/10 hover:bg-white hover:text-black text-zinc-300 flex items-center justify-center transition text-lg font-bold">&times;</button>
+<div class="mb-6">
+<h3 class="font-['Syne'] text-2xl font-bold text-white mb-1">Contact Me</h3>
+<p class="text-xs text-zinc-400 leading-relaxed">Want to discuss your project? Fill out the form or reach out directly via portfolio.</p>
+</div>
+<form id="contactForm" class="space-y-4 font-mono text-xs">
+<div>
+<label class="text-zinc-400 uppercase block mb-1">Your Name</label>
+<input type="text" required placeholder="Name and Surname" class="w-full bg-[#141424] border border-white/10 rounded-xl px-4 py-3 text-white focus:border-indigo-400 focus:outline-none">
+</div>
+<div>
+<label class="text-zinc-400 uppercase block mb-1">Email Address</label>
+<input type="email" required placeholder="name@domain.com" class="w-full bg-[#141424] border border-white/10 rounded-xl px-4 py-3 text-white focus:border-indigo-400 focus:outline-none">
+</div>
+<div>
+<label class="text-zinc-400 uppercase block mb-1">Your Message</label>
+<textarea rows="4" required placeholder="Tell me about your project..." class="w-full bg-[#141424] border border-white/10 rounded-xl px-4 py-3 text-white focus:border-indigo-400 focus:outline-none"></textarea>
+</div>
+<button type="submit" class="w-full bg-indigo-500 text-white py-4 rounded-xl font-bold uppercase tracking-widest hover:bg-indigo-400 transition shadow-lg">Send Message</button>
+</form>
+</div>
+</div>
+
+<!-- ================= AUTH MODAL ================= -->
+<div id="authModal" class="fixed inset-0 bg-black/90 backdrop-blur-xl z-[100001] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+<div class="bg-[#0b0b14] border border-white/20 rounded-3xl w-full max-w-md p-8 relative shadow-2xl my-auto">
+<button type="button" id="closeAuthModal" aria-label="Close account modal" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-white/10 hover:bg-white hover:text-black text-zinc-300 flex items-center justify-center transition text-lg font-bold">&times;</button>
+<div class="text-center mb-6">
+<h3 class="font-['Syne'] text-2xl font-bold uppercase text-white">STUDIO PORTAL</h3>
+<p class="mono-text text-[10px] text-indigo-400 tracking-widest mt-1">SECURE ACCESS &amp; VERIFICATION</p>
+</div>
+
+<div class="flex border-b border-white/10 mb-6 mono-text text-xs text-center">
+<button type="button" id="tabSignIn" class="w-1/2 pb-3 border-b-2 border-indigo-400 text-indigo-400 font-bold">SIGN IN</button>
+<button type="button" id="tabSignUp" class="w-1/2 pb-3 border-b-2 border-transparent text-zinc-500 hover:text-zinc-300">REGISTER</button>
+</div>
+
+<div id="authErrorBanner" class="hidden mb-4 p-3 rounded-xl bg-red-950/60 border border-red-500/40 text-red-300 text-[11px] mono-text" role="alert"></div>
+
+<form id="signInForm" class="space-y-4">
+<div>
+<label class="mono-text text-[10px] text-zinc-400 uppercase block mb-1">Email</label>
+<input type="email" id="signInEmail" placeholder="client@studio.com" class="w-full bg-[#141424] border border-white/10 rounded-xl px-4 py-3 text-xs text-white focus:border-indigo-400 focus:outline-none">
+</div>
+<div>
+<label class="mono-text text-[10px] text-zinc-400 uppercase block mb-1">Password</label>
+<input type="password" id="signInPassword" placeholder="••••••••" class="w-full bg-[#141424] border border-white/10 rounded-xl px-4 py-3 text-xs text-white focus:border-indigo-400 focus:outline-none">
+</div>
+<button type="submit" class="w-full bg-indigo-500 text-white py-3.5 rounded-xl mono-text font-bold text-xs uppercase tracking-widest hover:bg-indigo-400 transition mt-2 shadow-lg">Access Account</button>
+</form>
+
+<form id="signUpForm" class="space-y-4 hidden">
+<div>
+<label class="mono-text text-[10px] text-zinc-400 uppercase block mb-1">Full Name (Ad və Soyad)</label>
+<input type="text" id="signUpName" placeholder="Yusuf Məmmədov" class="w-full bg-[#141424] border border-white/10 rounded-xl px-4 py-3 text-xs text-white focus:border-indigo-400 focus:outline-none">
+</div>
+<div>
+<label class="mono-text text-[10px] text-zinc-400 uppercase block mb-1">Email Address</label>
+<input type="email" id="signUpEmail" placeholder="yusuf@domain.com" class="w-full bg-[#141424] border border-white/10 rounded-xl px-4 py-3 text-xs text-white focus:border-indigo-400 focus:outline-none">
+</div>
+<div>
+<label class="mono-text text-[10px] text-zinc-400 uppercase block mb-1">Password (Min. 6 simvol)</label>
+<input type="password" id="signUpPassword" placeholder="••••••••" class="w-full bg-[#141424] border border-white/10 rounded-xl px-4 py-3 text-xs text-white focus:border-indigo-400 focus:outline-none">
+</div>
+<button type="submit" class="w-full bg-indigo-500 text-white py-3.5 rounded-xl mono-text font-bold text-xs uppercase tracking-widest hover:bg-indigo-400 transition mt-2 shadow-lg">Register Account</button>
+</form>
+</div>
+</div>
+
+<!-- ================= FOOTER INFO MODAL ================= -->
+<div id="infoModal" class="fixed inset-0 bg-black/90 backdrop-blur-xl z-[100002] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+<div class="bg-[#0b0b14] border border-indigo-500/30 rounded-3xl w-full max-w-2xl p-8 md:p-10 relative shadow-2xl my-auto max-h-[85vh] overflow-y-auto">
+<div class="flex justify-between items-start gap-4 mb-6 pr-10">
+<div class="flex items-center gap-3 min-w-0">
+<i class="fa-solid fa-compass-drafting text-xl text-indigo-400"></i>
+<h3 id="infoModalTitle" class="font-['Syne'] text-2xl md:text-3xl font-bold text-white tracking-tight"></h3>
+</div>
+<button type="button" id="closeInfoModal" aria-label="Close information modal" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-indigo-500 hover:text-white text-zinc-300 flex items-center justify-center transition text-xl font-bold shrink-0">&times;</button>
+</div>
+<div id="infoModalBody" class="text-zinc-300 text-xs md:text-sm leading-relaxed font-light border-t border-white/10 pt-6 space-y-4"></div>
+</div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+const $ = (selector, root = document) => root.querySelector(selector);
+const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
+
+// Toast notification.
+let toastTimer;
+
+function showToast(title, sub = "") {
+const toast = $("#toastNotification");
+const message = $("#toastMessage");
+if (!toast || !message) return;
+
+message.textContent = sub ? `${title} ${sub}` : title;
+toast.classList.add("show");
+window.clearTimeout(toastTimer);
+toastTimer = window.setTimeout(() => toast.classList.remove("show"), 3000);
+}
+
+// Preloader. The progress timing follows the existing design.
+const preloader = $("#preloader");
+const preloaderCounter = $("#preloaderCounter");
+const preloaderBar = $("#preloaderBar");
+
+if (preloader && preloaderCounter && preloaderBar) {
+let percent = 0;
+const counterInterval = window.setInterval(() => {
+percent += Math.floor(Math.random() * 4) + 2;
+
+if (percent >= 100) {
+percent = 100;
+preloaderCounter.textContent = "100%";
+preloaderBar.style.width = "100%";
+window.clearInterval(counterInterval);
+
+window.setTimeout(() => {
+preloader.style.opacity = "0";
+preloader.style.transform = "scale(1.02)";
+window.setTimeout(() => {
+    preloader.style.display = "none";
+}, 1000);
+}, 500);
+} else {
+preloaderCounter.textContent = (percent < 10 ? "0" : "") + percent + "%";
+preloaderBar.style.width = percent + "%";
+}
+}, 60);
+}
+
+// Mobile / tablet navigation.
+const mobileMenuButton = $("#mobileMenuButton");
+const mobileMenu = $("#mobileMenu");
+
+function closeMobileMenu() {
+if (!mobileMenu || !mobileMenuButton) return;
+mobileMenu.hidden = true;
+mobileMenuButton.setAttribute("aria-expanded", "false");
+mobileMenuButton.setAttribute("aria-label", "Open navigation menu");
+}
+
+function openMobileMenu() {
+if (!mobileMenu || !mobileMenuButton) return;
+mobileMenu.hidden = false;
+mobileMenuButton.setAttribute("aria-expanded", "true");
+mobileMenuButton.setAttribute("aria-label", "Close navigation menu");
+}
+
+if (mobileMenuButton && mobileMenu) {
+mobileMenuButton.addEventListener("click", () => {
+const expanded = mobileMenuButton.getAttribute("aria-expanded") === "true";
+expanded ? closeMobileMenu() : openMobileMenu();
+});
+
+$$("a", mobileMenu).forEach(link => {
+link.addEventListener("click", closeMobileMenu);
+});
+
+document.addEventListener("click", event => {
+if (
+!mobileMenu.hidden &&
+!mobileMenu.contains(event.target) &&
+!mobileMenuButton.contains(event.target)
+) {
+closeMobileMenu();
+}
+});
+
+window.addEventListener("resize", () => {
+if (window.innerWidth >= 1024) closeMobileMenu();
+}, { passive: true });
+}
+
+// Video cards: hover on desktop, in-view playback on touch screens.
+const showcaseCards = $$(".media-showcase-card");
+const hasHoverPointer = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+showcaseCards.forEach(card => {
+const video = $("video.hover-video", card);
+if (!video) return;
+
+if (hasHoverPointer) {
+card.addEventListener("mouseenter", () => {
+const playPromise = video.play();
+if (playPromise && typeof playPromise.catch === "function") {
+playPromise.catch(() => {});
+}
+});
+
+card.addEventListener("mouseleave", () => {
+video.pause();
+try { video.currentTime = 0; } catch (_) {}
+});
+}
+});
+
+if (!hasHoverPointer && "IntersectionObserver" in window) {
+const videoObserver = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+const video = $("video.hover-video", entry.target);
+if (!video) return;
+
+if (entry.isIntersecting) {
+const playPromise = video.play();
+if (playPromise && typeof playPromise.catch === "function") {
+    playPromise.catch(() => {});
+}
+} else {
+video.pause();
+}
+});
+}, { threshold: 0.55 });
+
+showcaseCards.forEach(card => {
+if ($("video.hover-video", card)) videoObserver.observe(card);
+});
+}
+
+// Scroll reveal with fallback for browsers without IntersectionObserver.
+const revealElements = $$(".animate-on-scroll");
+
+if ("IntersectionObserver" in window) {
+const revealObserver = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add("animated");
+revealObserver.unobserve(entry.target);
+}
+});
+}, { threshold: 0.12 });
+
+revealElements.forEach(element => revealObserver.observe(element));
+} else {
+revealElements.forEach(element => element.classList.add("animated"));
+}
+
+// Category filtering.
+const filterBtns = $$(".skill-filter-btn");
+const skillCards = $$(".media-showcase-card");
+
+filterBtns.forEach(button => {
+button.addEventListener("click", function () {
+filterBtns.forEach(btn => {
+btn.classList.remove("active");
+btn.classList.remove("border-indigo-500", "text-white", "bg-indigo-600/20");
+btn.classList.add("border-white/15", "text-zinc-400", "bg-black/40");
+});
+
+this.classList.add("active");
+this.classList.remove("border-white/15", "text-zinc-400", "bg-black/40");
+this.classList.add("border-indigo-500", "text-white", "bg-indigo-600/20");
+
+const filter = this.getAttribute("data-filter");
+
+skillCards.forEach(card => {
+const matches = filter === "all" || card.getAttribute("data-category") === filter;
+card.hidden = !matches;
+if (matches) card.classList.add("animated");
+});
+});
+});
+
+// Modal helpers and body scroll lock.
+const contactModal = $("#contactModal");
+const authModal = $("#authModal");
+const infoModal = $("#infoModal");
+const allModals = [contactModal, authModal, infoModal].filter(Boolean);
+
+function openModal(modal) {
+if (!modal) return;
+closeMobileMenu();
+modal.classList.add("modal-active");
+document.body.classList.add("modal-open");
+}
+
+function closeModal(modal) {
+if (!modal) return;
+modal.classList.remove("modal-active");
+if (!allModals.some(item => item.classList.contains("modal-active"))) {
+document.body.classList.remove("modal-open");
+}
+}
+
+// Card info modal.
+skillCards.forEach(card => {
+card.addEventListener("click", () => {
+const title = card.getAttribute("data-title") || "Skill details";
+const text = card.getAttribute("data-text") || "";
+$("#infoModalTitle").textContent = title;
+
+const body = $("#infoModalBody");
+body.replaceChildren();
+const paragraph = document.createElement("p");
+paragraph.className = "leading-relaxed text-sm text-zinc-300";
+paragraph.textContent = text;
+body.appendChild(paragraph);
+
+openModal(infoModal);
+});
+});
+
+// Contact modal.
+$("#openContactModal")?.addEventListener("click", () => openModal(contactModal));
+$("#mobileOpenContactModal")?.addEventListener("click", () => openModal(contactModal));
+$("#closeContactModal")?.addEventListener("click", () => closeModal(contactModal));
+
+$("#contactForm")?.addEventListener("submit", function (event) {
+event.preventDefault();
+closeModal(contactModal);
+this.reset();
+showToast("Message Sent!", "Thank you for reaching out.");
+});
+
+// Auth modal.
+const tabSignIn = $("#tabSignIn");
+const tabSignUp = $("#tabSignUp");
+const signInForm = $("#signInForm");
+const signUpForm = $("#signUpForm");
+const errorBanner = $("#authErrorBanner");
+
+$("#openAuthModal")?.addEventListener("click", () => {
+errorBanner?.classList.add("hidden");
+openModal(authModal);
+});
+
+$("#mobileOpenAuthModal")?.addEventListener("click", () => {
+errorBanner?.classList.add("hidden");
+openModal(authModal);
+});
+
+$("#closeAuthModal")?.addEventListener("click", () => closeModal(authModal));
+
+function setAuthTab(activeTab) {
+if (!tabSignIn || !tabSignUp || !signInForm || !signUpForm) return;
+
+const isSignIn = activeTab === "signin";
+
+tabSignIn.className = isSignIn
+? "w-1/2 pb-3 border-b-2 border-indigo-400 text-indigo-400 font-bold"
+: "w-1/2 pb-3 border-b-2 border-transparent text-zinc-500 hover:text-zinc-300";
+
+tabSignUp.className = !isSignIn
+? "w-1/2 pb-3 border-b-2 border-indigo-400 text-indigo-400 font-bold"
+: "w-1/2 pb-3 border-b-2 border-transparent text-zinc-500 hover:text-zinc-300";
+
+signInForm.classList.toggle("hidden", !isSignIn);
+signUpForm.classList.toggle("hidden", isSignIn);
+errorBanner?.classList.add("hidden");
+}
+
+tabSignIn?.addEventListener("click", () => setAuthTab("signin"));
+tabSignUp?.addEventListener("click", () => setAuthTab("signup"));
+
+function isValidEmail(email) {
+return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function showAuthError(message) {
+if (!errorBanner) return;
+errorBanner.textContent = "Xəta: " + message;
+errorBanner.classList.remove("hidden");
+}
+
+signInForm?.addEventListener("submit", event => {
+event.preventDefault();
+
+const email = $("#signInEmail").value.trim();
+const password = $("#signInPassword").value;
+
+if (!email || !password) {
+showAuthError("Bütün xanaları doldurun!");
+return;
+}
+
+if (!isValidEmail(email)) {
+showAuthError("Etibarlı email ünvanı daxil edin!");
+return;
+}
+
+errorBanner?.classList.add("hidden");
+closeModal(authModal);
+showToast("Xoş gəldiniz!", "Studio hesabınıza daxil olundu.");
+signInForm.reset();
+});
+
+signUpForm?.addEventListener("submit", event => {
+event.preventDefault();
+
+const name = $("#signUpName").value.trim();
+const email = $("#signUpEmail").value.trim();
+const password = $("#signUpPassword").value;
+
+if (!name || !email || !password) {
+showAuthError("Qeydiyyat üçün bütün xanaları doldurun!");
+return;
+}
+
+if (name.length < 3) {
+showAuthError("Ad və Soyad ən azı 3 hərfdən ibarət olmalıdır!");
+return;
+}
+
+if (!isValidEmail(email)) {
+showAuthError("Daxil edilən email formatı səhvdir!");
+return;
+}
+
+if (password.length < 6) {
+showAuthError("Şifrə ən azı 6 simvoldan ibarət olmalıdır!");
+return;
+}
+
+errorBanner?.classList.add("hidden");
+closeModal(authModal);
+showToast("Qeydiyyat Uğurludur!", "Studio hesabınız yaradıldı.");
+signUpForm.reset();
+});
+
+// Footer info modal.
+$$(".info-link").forEach(link => {
+link.addEventListener("click", () => {
+$("#infoModalTitle").textContent = link.getAttribute("data-title") || "Information";
+
+const body = $("#infoModalBody");
+body.replaceChildren();
+const paragraph = document.createElement("p");
+paragraph.textContent = link.getAttribute("data-text") || "";
+body.appendChild(paragraph);
+
+openModal(infoModal);
+});
+});
+
+$("#closeInfoModal")?.addEventListener("click", () => closeModal(infoModal));
+
+// Close modal using backdrop or Escape.
+allModals.forEach(modal => {
+modal.addEventListener("click", event => {
+if (event.target === modal) closeModal(modal);
+});
+});
+
+document.addEventListener("keydown", event => {
+if (event.key === "Escape") {
+allModals.forEach(closeModal);
+closeMobileMenu();
+}
+});
+});
+</script>
+</body>
+</html>
